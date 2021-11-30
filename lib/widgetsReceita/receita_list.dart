@@ -77,7 +77,7 @@ class _ReceitasListState extends State<ReceitasList> {
             textScaleFactor: 1.4,
             style: TextStyle(color: Theme.of(context).primaryColorDark),
           ),
-          subtitle: Text(item.dados.TempoPreparo.toString()),
+          subtitle: Text(item.dados.Ingredientes.toString()),
         );
       },
     );

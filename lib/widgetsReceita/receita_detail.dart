@@ -5,6 +5,9 @@ import 'package:projeto_final/widgetsReceita/receita_arg.dart';
 
 class ReceitaDetail extends StatelessWidget{
   const ReceitaDetail({Key? key}) : super(key : key);
+  
+
+
   @override
   Widget build(BuildContext context){
     final ReceitaArg args =
@@ -13,44 +16,108 @@ class ReceitaDetail extends StatelessWidget{
       appBar: AppBar(title: const Text('Detalhes')),
       body: Stack(
         children: [
-          Image.asset(
-            '',
-            fit: BoxFit.cover,
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-          ),
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Card(
-                color: Colors.white12,
+                color: Colors.white,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.blueGrey,
-                        radius: 80,
-                        child: Image.asset(
-                          '',
-                          height: 130,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      args.receita.titulo,
+                  children: [ 
+
+                  const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                    child: Text(
+                     "Receita",
                       textAlign: TextAlign.center,
-                      textScaleFactor: 1.8,
-                      style: const TextStyle(
+                      textScaleFactor: 1.5,
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
-                    ),                   
+                    ),
+                  ),
+                  
+                  TextFormField(initialValue: args.receita.titulo,
+                   textAlign: TextAlign.center,
+                  
+
+                  ),
+
+                  const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                    child: Text(
+                     "Ingredientes",
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.5,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  
+                  TextFormField(initialValue: args.receita.dados.Ingredientes.toString(),
+                   textAlign: TextAlign.center,
+                  
+                  
+                  ),
+
+                  const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                    child: Text(
+                     "Passo a Passo",
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.5,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ), 
+                   TextFormField(initialValue: args.receita.dados.PassoPasso.toString(),
+                   textAlign: TextAlign.center,
+                  
+                   ),
+
+                  const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                    child: Text(
+                     "Cozimento (Min)",
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.5,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+
+                   TextFormField(initialValue: args.receita.dados.TempoCozimento.toString(),
+                   textAlign: TextAlign.center,
+                  
+                   ),
+
+
+                  const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                    child: Text(
+                     "Preparo (Min)",
+                      textAlign: TextAlign.center,
+                      textScaleFactor: 1.5,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                   TextFormField(initialValue: args.receita.dados.TempoPreparo.toString(),
+                   textAlign: TextAlign.center,
+                  
+                   ),
+                   
+                     
+ 
+
                   ],
                 ),
               ),
             ),
-
           )
         ],
       ),

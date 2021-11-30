@@ -4,25 +4,15 @@ import 'package:projeto_final/dados_receita.dart';
 
 class ReceitaForm extends StatefulWidget {
   final void Function(String, DadosReceita) submit;
-  const ReceitaForm({Key? key, required this.submit, required dados}) : super(key: key);
+  const ReceitaForm({Key? key, required this.submit}) : super(key: key);
   @override
   State<ReceitaForm> createState() => _ReceitaFormState();
 }
 
 class _ReceitaFormState extends State<ReceitaForm> {
   final String? titulo = 'Titulo';
-  final String? preparo = 'Temp. Preparo';
-  final String? cozimento = 'Temp. Cozimento';
-  final String? ingredientes = 'Ingredientes';
-  final String? passopasso = "Passo-a-Passo";
-  final String save = 'Salvar';
-
-
+   final String save = 'Salvar';
   final tituloController = TextEditingController();
-  final preparoController = TextEditingController();
-  final cozimentoController = TextEditingController();
-  final ingredientesController = TextEditingController();
-  final passopassoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +37,7 @@ class _ReceitaFormState extends State<ReceitaForm> {
             ElevatedButton(
               onPressed: () {
                 if(tituloController.text.length > 2){  
-                  widget.submit(tituloController.text, dados);                  
+                  widget.submit(tituloController.text, DadosReceita(0, 0, '', ''));
                 }
               }, child: Text(save),
             )

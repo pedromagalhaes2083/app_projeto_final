@@ -13,13 +13,13 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home>{
   List<Receita> receitas = [
-    Receita(1, 'Miojo', DadosReceita(20, 10, 'retire da embalagem, ferva por 3 minutos e coma', 'miojo, água')),
+    Receita(1, 'Miojo', DadosReceita(3, 4, ' Abra o pacote, coloque dentro da água foi anteriormente despejada em um recipiente já fervendo e, deixe lá por 3min, após isso retire o excesso de água e coloque o saquinho de sabor, aproveite. :)', 'Pacote de miojo')),
   ];
 
   int id_counter = 2;
   void _add(String titulo, DadosReceita dados){
     setState(() {
-      receitas.add(Receita(id_counter, titulo, dados));
+    receitas.add(Receita(id_counter, titulo, dados));
     });
   }
   void _delete(int id){
@@ -39,7 +39,7 @@ class _HomeState extends State<Home>{
             showModalBottomSheet(
               context: context,
               builder: (_) {
-                return ReceitaForm(submit: _add, dados:  _add);
+                return ReceitaForm(submit: _add);
               },
             );
           },
