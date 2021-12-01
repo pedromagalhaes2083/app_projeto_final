@@ -110,10 +110,6 @@ class ReceitaDetail extends StatelessWidget{
                    textAlign: TextAlign.center,
                   
                    ),
-                   
-                     
- 
-
                   ],
                 ),
               ),
