@@ -32,13 +32,19 @@ class ReceitaDados extends StatelessWidget{
                       title,
                       textAlign: TextAlign.center,
                       textScaleFactor: 1.5,
-                      style: TextStyle(
+                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),          
+                  ),       
                   TextFormField(initialValue: initialValue.toString(),
                    textAlign: TextAlign.center,
+                      keyboardType: TextInputType.multiline,
+                      minLines: 1,
+                      maxLines: 20,
+                      maxLength: 1000,
+                      decoration: InputDecoration(counterText: ""),
+                                    
                     onChanged: (value){
                       onUpdate(value);
                       args.refresh();
