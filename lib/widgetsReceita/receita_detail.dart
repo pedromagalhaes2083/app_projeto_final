@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter/widgets.dart';
 import 'package:projeto_final/widgetsReceita/receita_arg.dart';
+import 'package:projeto_final/widgetsReceita/receita_dados.dart';
 
 class ReceitaDetail extends StatelessWidget{
   const ReceitaDetail({Key? key}) : super(key : key);
   
-
-
   @override
   Widget build(BuildContext context){
     final ReceitaArg args =
@@ -25,91 +23,36 @@ class ReceitaDetail extends StatelessWidget{
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [ 
 
-                  const Padding(
-                  padding: EdgeInsets.only(top: 10.0),
-                    child: Text(
-                     "Receita",
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 1.5,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  ReceitaDados(
+                    args: args,
+                    title: "Receita",
+                    initialValue: args.receita.titulo,
+                    onUpdate: (value) => args.receita.titulo = value,
                   ),
-                  
-                  TextFormField(initialValue: args.receita.titulo,
-                   textAlign: TextAlign.center,
-                  
-
+                   ReceitaDados(
+                    args: args,
+                    title: "Ingredientes",
+                    initialValue: args.receita.dados.Ingredientes,
+                    onUpdate: (value) => args.receita.dados.Ingredientes = value,
                   ),
-
-                  const Padding(
-                  padding: EdgeInsets.only(top: 10.0),
-                    child: Text(
-                     "Ingredientes",
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 1.5,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                   ReceitaDados(
+                    args: args,
+                    title: "Passo a Passo",
+                    initialValue: args.receita.dados.PassoPasso,
+                    onUpdate: (value) => args.receita.dados.PassoPasso = value,
                   ),
-                  
-                  TextFormField(initialValue: args.receita.dados.Ingredientes.toString(),
-                   textAlign: TextAlign.center,
-                  
-                  
+                  ReceitaDados(
+                    args: args,
+                    title: "Cozimento (min.)",
+                    initialValue: args.receita.dados.TempoCozimento,
+                    onUpdate: (value) => args.receita.dados.TempoCozimento = toInt(value),
                   ),
-
-                  const Padding(
-                  padding: EdgeInsets.only(top: 10.0),
-                    child: Text(
-                     "Passo a Passo",
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 1.5,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ), 
-                   TextFormField(initialValue: args.receita.dados.PassoPasso.toString(),
-                   textAlign: TextAlign.center,
-                  
-                   ),
-
-                  const Padding(
-                  padding: EdgeInsets.only(top: 10.0),
-                    child: Text(
-                     "Cozimento (Min)",
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 1.5,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  ReceitaDados(
+                    args: args,
+                    title: "Preparo (min.)",
+                    initialValue: args.receita.dados.TempoPreparo,
+                    onUpdate: (value) => args.receita.dados.TempoPreparo = toInt(value),
                   ),
-
-                   TextFormField(initialValue: args.receita.dados.TempoCozimento.toString(),
-                   textAlign: TextAlign.center,
-                  
-                   ),
-
-
-                  const Padding(
-                  padding: EdgeInsets.only(top: 10.0),
-                    child: Text(
-                     "Preparo (Min)",
-                      textAlign: TextAlign.center,
-                      textScaleFactor: 1.5,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                   TextFormField(initialValue: args.receita.dados.TempoPreparo.toString(),
-                   textAlign: TextAlign.center,
-                  
-                   ),
                   ],
                 ),
               ),
@@ -119,5 +62,8 @@ class ReceitaDetail extends StatelessWidget{
       ),
     );
   }
+}
 
+int toInt(String texto){
+ return int.tryParse(texto) ?? 0;
 }
