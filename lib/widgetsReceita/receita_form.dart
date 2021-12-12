@@ -11,8 +11,18 @@ class ReceitaForm extends StatefulWidget {
 
 class _ReceitaFormState extends State<ReceitaForm> {
   final String? titulo = 'Titulo';
-   final String save = 'Salvar';
+  final String? cozimento = 'Cozimento (Min.)';
+  final String? preparo = 'Preparo (Min.)';
+  final String? ingredientes = 'Ingredientes';
+  final String? passopasso = 'Passo-a-Passo';
+  final String save = 'Salvar';
+
   final tituloController = TextEditingController();
+  final cozimentoController = TextEditingController();
+  final preparoController = TextEditingController();
+  final ingredienteController = TextEditingController();
+  final passopassoController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +44,55 @@ class _ReceitaFormState extends State<ReceitaForm> {
                 border: const OutlineInputBorder(),
               ),
             ),
+             const Padding(
+                padding: EdgeInsets.only(top: 10.0),     
+              ),
+            TextField(
+              controller: ingredienteController,
+              decoration: InputDecoration(            
+                labelText: ingredientes,
+                border: const OutlineInputBorder(),
+              ),
+            ), 
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),     
+              ),
+            TextField(
+              controller: passopassoController,
+              decoration: InputDecoration(            
+                labelText: passopasso,
+                border: const OutlineInputBorder(),
+              ),
+            ), 
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),     
+              ),
+            TextField(
+              controller: cozimentoController,
+              decoration: InputDecoration(            
+                labelText: cozimento,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0),     
+              ),
+            TextField(
+              controller: preparoController,
+              decoration: InputDecoration(            
+                labelText: preparo,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+
+
             ElevatedButton(
               onPressed: () {
                 if(tituloController.text.length > 2){  
-                  widget.submit(tituloController.text, DadosReceita(0, 0, '', ''));
+                  widget.submit(tituloController.text, DadosReceita(toInt(cozimentoController.text), 
+                  toInt(preparoController.text), 
+                  passopassoController.text,
+                  ingredienteController.text));
                 }
               }, child: Text(save),
             )
@@ -47,3 +102,8 @@ class _ReceitaFormState extends State<ReceitaForm> {
    );
   }
 }
+
+int toInt(String texto){
+ return int.tryParse(texto) ?? 0;
+}
+ 
