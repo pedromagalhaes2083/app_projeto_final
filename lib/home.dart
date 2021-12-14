@@ -28,7 +28,7 @@ class _HomeState extends State<Home>{
     });
   }
 
-  final title = 'PROJETO FINAL';
+  final title = 'PROJETO FINAL - DECUMÊ';
   @override
   Widget build(BuildContext context){
     final AppBar appBar = AppBar(
