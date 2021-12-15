@@ -21,8 +21,8 @@ class _ReceitasListState extends State<ReceitasList> {
  
   @override
   Widget build(BuildContext context){
-    const messagem = "Confirmar exclusão do item?";
-    const sim = 'Sim';
+    const messagem = "Deseja mesmo excluir essa receita?";
+    const sim = 'Quero';
     const nao = 'Não';
     return ListView.builder(
       shrinkWrap: true,
@@ -47,20 +47,28 @@ class _ReceitasListState extends State<ReceitasList> {
                 context: context,
                 builder: (context) {
                   return AlertDialog(
-                    title: const Text(messagem),
+                    title: const Text(
+                      messagem,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.orange
+                      ),                      
+                    ),
                     actions: [
                       TextButton(
                         onPressed: () {
                           Navigator.of(context).pop();
                         }, 
-                        child: const Text(nao)
+                        child: const Text(nao, style: TextStyle(fontWeight: FontWeight.bold),
+                         )
                         ),
                         TextButton(
                         onPressed: () {
                           widget.delete(item.id);
                           Navigator.of(context).pop();
                         }, 
-                        child: const Text(sim)
+                        child: const Text(sim, style: TextStyle(fontWeight: FontWeight.bold),
+                          )
                         ),
                     ],
                   );
@@ -75,7 +83,7 @@ class _ReceitasListState extends State<ReceitasList> {
           title: Text(
             '${item.id} - ${item.titulo}',
             textScaleFactor: 1.4,
-            style: TextStyle(color: Theme.of(context).primaryColorDark),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).primaryColorDark),
           ),
           subtitle: Text(item.dados.Ingredientes.toString()),
         );

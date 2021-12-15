@@ -13,7 +13,7 @@ class ProjetoApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(primarySwatch: Colors.orange),
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {

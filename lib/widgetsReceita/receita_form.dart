@@ -94,12 +94,19 @@ class _ReceitaFormState extends State<ReceitaForm> {
                   passopassoController.text,
                   ingredienteController.text));
                 }
-              }, child: Text(save),
+              }, 
+              child: Text(
+                save,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),
+                ),
             )
           ],
         ),
       )
-   );
+    );
   }
 }
 

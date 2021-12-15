@@ -32,8 +32,9 @@ class ReceitaDados extends StatelessWidget{
                       title,
                       textAlign: TextAlign.center,
                       textScaleFactor: 1.5,
-                     style: TextStyle(
+                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
+                        color: Colors.orange
                       ),
                     ),
                   ),       
@@ -43,7 +44,7 @@ class ReceitaDados extends StatelessWidget{
                       minLines: 1,
                       maxLines: 20,
                       maxLength: 1000,
-                      decoration: InputDecoration(counterText: ""),
+                      decoration: const InputDecoration(counterText: ""),
                                     
                     onChanged: (value){
                       onUpdate(value);

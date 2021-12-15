@@ -11,14 +11,19 @@ class ReceitaDetail extends StatelessWidget{
     final ReceitaArg args =
     ModalRoute.of(context)!.settings.arguments as ReceitaArg;
     return Scaffold(
-      appBar: AppBar(title: const Text('Detalhes')),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text(
+        'DETALHES: ' + args.receita.titulo.toString(),
+        style: const TextStyle(color: Colors.white),
+      )),
       body: Stack(
         children: [
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Card(
-                color: Colors.white,
+                color: Colors.deepOrange[50],
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [ 
@@ -29,13 +34,13 @@ class ReceitaDetail extends StatelessWidget{
                     initialValue: args.receita.titulo,
                     onUpdate: (value) => args.receita.titulo = value,
                   ),
-                   ReceitaDados(
+                  ReceitaDados(
                     args: args,
                     title: "Ingredientes",
                     initialValue: args.receita.dados.Ingredientes,
                     onUpdate: (value) => args.receita.dados.Ingredientes = value,
                   ),
-                   ReceitaDados(
+                  ReceitaDados(
                     args: args,
                     title: "Passo a Passo",
                     initialValue: args.receita.dados.PassoPasso,
